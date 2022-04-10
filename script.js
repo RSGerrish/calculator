@@ -43,7 +43,7 @@ for (i = 0; i < 20; i++) {
         return;
       }else {
         if (expression === "+") {calcScreen.textContent = calculateAddition(firstValue, secondValue)}
-        else if (expression === "-") {calcScreen.textContent = calculateSubtraction(fistValue, secondValue)}
+        else if (expression === "-") {calcScreen.textContent = calculateSubtraction(firstValue, secondValue)}
         else if (expression === "×") {calcScreen.textContent = calculateMultiply(firstValue, secondValue)}
         else if (expression === "÷") {calcScreen.textContent = calculateDivide(firstValue, secondValue)}
         
@@ -109,7 +109,7 @@ for (i = 0; i < 20; i++) {
   else if (i === 3) {
     btn.textContent = "←";
     btn.addEventListener('click', function() {
-      console.log(btn.textContent);
+      calcScreen.textContent = calcScreen.textContent.slice(0, -1);
     });
   }
   else if (i === 2) {
@@ -130,7 +130,9 @@ for (i = 0; i < 20; i++) {
   else if (i === 0) {
     btn.textContent = "x²";
     btn.addEventListener('click', function() {
-      console.log(btn.textContent);
+      if(calcScreen.textContent) {
+        calcScreen.textContent = calculateSquare(parseInt(calcScreen.textContent));
+      }
     });
   }
 
